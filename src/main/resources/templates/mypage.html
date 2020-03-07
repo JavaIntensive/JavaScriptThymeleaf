@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${mykey}"></p>
+<p>Name | Age | ProjectRole </p>
+<div id="main"><p>Temporary Value </p></div>
+<script th:inline="javascript">
+ /*   var myval=/!*[[${mykey}]]*!/ "Test";*/
+
+ /*the following line will load myteam coming from the model to the variable listVals, the "Test" is a static value and
+ * it will be overridden by the value coming from the model in this case the myteam*/
+     var listVals = /*[[${myteam}]]*/ "Test";
+     /*maindv will get the div element created above by its id "main"*/
+    var maindv= document.getElementById("main");
+    // will get the element
+
+    for(i=0 ; i<listVals.length ; i++){
+        /*createTextNode will create a text which is a value to display */
+        var t= document.createTextNode(listVals[i].name + ' ' + listVals[i].age +' ' + listVals[i].projectrole);
+        /*p is a variable that will contain or create element p => <p>no value here yet</p>*/
+        var p = document.createElement("p");
+        /* the p tag created above will have the content from t above */
+        p.appendChild(t);
+        /*the p tag with its content will be placed inside div referred by main.*/
+        maindv.appendChild(p);
+
+    }
+
+
+
+
+</script>
+
+</body>
+
+</html>
