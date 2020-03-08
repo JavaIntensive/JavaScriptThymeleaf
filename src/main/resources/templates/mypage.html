@@ -7,7 +7,7 @@
 <body>
 <p th:text="${mykey}"></p>
 <p>Name | Age | ProjectRole </p>
-<div id="main"><p>Temporary Value </p></div>
+<div id="main"><p id="pid">Temporary Value </p></div>
 <script th:inline="javascript">
  /*   var myval=/!*[[${mykey}]]*!/ "Test";*/
 
@@ -15,7 +15,7 @@
  * it will be overridden by the value coming from the model in this case the myteam*/
      var listVals = /*[[${myteam}]]*/ "Test";
      /*maindv will get the div element created above by its id "main"*/
-    var maindv= document.getElementById("main");
+    var maindv= document.getElementById("pid");
     // will get the element
 
     for(i=0 ; i<listVals.length ; i++){
