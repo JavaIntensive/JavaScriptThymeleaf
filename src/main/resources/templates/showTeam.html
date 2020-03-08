@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>List of teams </p>
+<table class ="table table-striped" th:each="a: ${showTeam}">
+    <tr>
+        <td th:text="${#temporals.format(a.dateTime,'dd-MMM-yyyy hh-mm')}"></td>
+        <td th:inline="text">[[${a.name}]]</td>
+        <td th:inline="text">[[${a.age}]]</td>
+        <td th:inline="text">[[${a.projectrole}]]</td>
+
+        <!--<td th:inline="text"><a th:href="@{/deleteCar/{id} (id= ${a.id})}">Delete</a>
+            <a th:href="@{/updateCar/{id} (id= ${a.id})}">Update</a></td>-->
+    </tr>
+</table>
+</body>
+</html>
